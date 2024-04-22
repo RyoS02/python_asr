@@ -50,11 +50,13 @@ if __name__ == "__main__":
                 print('Error: Not found %s' % (wav_path_in))
                 exit()
 
-            # サンプリング周波数の変換と保存を実行する
+            # サンプリング周波数の変換と保存を実行する．inputとoutputのファイルパスを指定
             tfm.build_file(input_filepath=wav_path_in, 
                            output_filepath=wav_path_out)
 
             # wavファイルのリストを書き込む
             scp_file.write('%s %s\n' % 
                            (filename, os.path.abspath(wav_path_out)))
+            # scpファイルは音声ファイルとそれに関連するメタデータ（特徴量など）の対応関係を記録するために使用される
+            # %sはpythonの文字列書式化や埋め込みで使われる．今回はfilenameとその絶対パスが置き換えられる
         

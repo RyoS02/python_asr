@@ -39,6 +39,7 @@ if __name__ == "__main__":
 
         # wavデータを読み込む
         waveform = wav.readframes(num_samples)
+        print(type(waveform))
 
         # 読み込んだデータはバイナリ値(16bit integer)
         # なので，数値(整数)に変換する

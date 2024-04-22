@@ -29,6 +29,8 @@ if __name__ == "__main__":
     # ラベルデータを読み込む
     with open(original_label, mode='r') as yamlfile:
         label_info = yaml.safe_load(yamlfile)
+        print(type(label_info))
+        # YAMLデータをPythonのデータ構造（辞書、リストなど）に変換し，YAMLファイル内の情報をPythonで扱える形に変換している
 
     # キャラクター/かな/音素のラベルファイルを書き込みモードで開く
     with open(os.path.join(out_label_dir, 'text_char'), 

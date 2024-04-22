@@ -28,15 +28,21 @@ if __name__ == "__main__":
 
     # 音声ファイル(jsutコーパス. zip形式)をダウンロード
     data_archive = os.path.join(data_dir, 'jsut-data.zip')
+    # os.path.join(ファイルを保存するディレクトリのパスを指定, ダウンロードされるファイルの名前)でファイルの絶対パスを作成
     print('download jsut-data start')
     urlretrieve('http://ss-takashi.sakura.ne.jp/corpus/jsut_ver1.1.zip', 
                 data_archive)
+    # urlretrieve(ダウンロードするファイルのURL, ローカルに保存するファイルのパス)
     print('download jsut-data finished')
 
     # ダウンロードしたデータを展開する
     print('extract jsut-data start')
+    # zipfileモジュールのZipFileクラスを使用してdata_archiveというzipファイルを開く
+    # asにより，ZipFileインスタンスをdata_zipという名前で参照
     with zipfile.ZipFile(data_archive) as data_zip:
         data_zip.extractall(data_dir)
+    # data_zipとして参照されるZipFileインスタンスのextractall()メソッドを呼び出し，
+    # zipファイル内のすべてのファイルをdata_dirに解凍する
     print('extract jsut-data finished')
 
     # zipファイルを削除する
